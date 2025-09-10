@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab 1 by Elias Muniz</title>
+</head>
+<body>
+    <h1>Lab 1, Elias Muniz</h1>
+
+    <script>
+        console.log("---- Example 1 -----")
+        let username = "peterpan123"
+        let passcode = 12345
+        console.log("Welcome to JS ", username)
+        console.log(`Welcome to JS ${username}.\nYour passcode is ${passcode}`)
+
+        console.log("---- Example 2: numerical variables -----")
+        let num1 = 10
+        let num2 = -2.5
+        let sum = num1 + num2
+        console.log(`The sum of number ${num1} plus ${num2} = ${sum}`)
+
+        console.log("---- Example 3: numerical operators -----")
+        num1 = 8
+        num2 = 5
+        let rem = num1%num2 // % returns the remainder of num1 divided by num2
+        console.log(`The remainder of ${num1} and ${num2} is ${rem}`)
+
+        console.log("---- Example 4: boolean variables -----")
+        let isPassed = true
+        let compare_num1_num2 = num1<num2
+        let equal_numbers = num1 == num2
+        console.log(`Did ${username} pass the class? ${isPassed}`)
+        console.log(`is ${num1} less than {num2}? ${compare_num1_num2}`)
+        console.log(`are num1 and num2 equal? ${equal_numbers}`)
+
+        console.log("---- Example 5: NaN, Not a Number -----")
+        let operation = username - num1
+        console.log(`Operation = ${operation}`) 
+        console.log(`Username is a ${typeof(username)} and num1 is a ${typeof(num1)}`)
+
+        console.log("---- Example 6: Prompt method -----")
+        let number = parseInt(prompt(`please enter a number`))
+        // any data collected by using the prompt method will be record and show it to the end user.
+        number = number * 2
+        console.log(`The doubled number is ${number}. ${typeof(number)}`)
+
+        console.log("----Example 7: Strings-----")
+        let password = "peterpan123"
+        console.log(`The third character is ${password[2]}`)
+
+        console.log("----Example 8: length of the string")
+        let num_characters = password.length
+        console.log(`Password ${password} has ${num_characters} characters`)
+
+        console.log("----Example 9: Upper and Lowercase ")
+        console.log(`password to uppercase ${password.toUpperCase()}`)
+        console.log(password)
+        console.log(`password to lowercase ${password.toLowerCase()}`)
+        console.log(password)
+
+        console.log("----Example 10: Subtract method ")
+        console.log(`subtracted string ${password.substr(5,4)}`)
+
+        console.log("-----Example 11: Search method----- ")
+        console.log(`letter e has index = ${password.search('e')}`)
+
+        console.log("-----Example 12: Slice method----")
+        console.log(`Slice from the 5th character ${password.slice(4)}`)
+        console.log(`slice using negative index ${password.slice(-5)}`)
+
+        console.log(`Lab Exercise`)
+        let user = (prompt(`please enter a name`))
+        user = user
+        console.log(`The second leter of the word is ${user[2]}`)
+        let user_length= user.length
+        console.log(`The length of the word ${user} is ${user.length}.`)
+        console.log(`${user.toUpperCase}`)
+        console.log(`The last two characters of the word are ${user.slice(-2)}`)
+
+
+
+
+    </script>
+</body>
+</html>
