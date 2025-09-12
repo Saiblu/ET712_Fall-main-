@@ -85,5 +85,32 @@ function yell(message="") {
 console.log("Execution completed.")
 
 
-//Excercise 1
-function myCaculator
+// Excercise 1
+const mycalculator = {
+    message: "Calculator for square and cube",
+    side: 2,
+    area_square: function() {
+        return Math.pow(this.side, 2);
+    },
+    volume_cube: function() {
+        return Math.pow(this.side, 3);
+    }
+};
+
+console.log(mycalculator.message);
+console.log(`Area of square: ${mycalculator.area_square()}`);
+console.log(`Volume of cube: ${mycalculator.volume_cube()}`);
+
+// Excercise 2
+function readProperty(obj, prop) {
+    try {
+        return obj[prop];
+    } catch (error) {
+        return "Error accessing property";
+    }
+}
+
+// Example usage:
+let cars = { type: "Fiat", model: "500" };
+console.log(readProperty(cars, "type")); // Output: Fiat
+console.log(readProperty(null, "type")); // Output: Error accessing property

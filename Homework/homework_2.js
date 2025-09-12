@@ -25,20 +25,34 @@ function collectNumbers(count) {
     return numbers;
 }
 
-// Main script
-console.log("---- Homework 2: Control Flow, Loops, and Functions ----");
-
-let nums = collectNumbers(5);
-
-for (let i = 0; i < nums.length; i++) {
-    let type = checkEvenOdd(nums[i]);
-    console.log(`Number ${nums[i]} is ${type}.`);
+// Exercise 1: name_counting() function
+function name_counting(arrLength) {
+    let names = ["Ann", "Peter", "Patricia", "Sam", "Katerina"];
+    let count = 0;
+    for (let i = 0; i < arrLength; i++) {
+        if (names[i].length < 5) {
+            count++;
+        }
+    }
+    return count;
 }
 
-let sum = 0;
-for (let n of nums) {
-    sum += n;
-}
-console.log(`Sum of all numbers: ${sum}`);
+// Test the function
+let result = name_counting(5);
+console.log(`Number of names with less than 5 characters: ${result}`);
 
-console.log("---- End of Homework 2 ----");
+// Exercise 2: checkNum() function
+function checkNum() {
+    let num;
+    while (true) {
+        let input = prompt("Enter a number:");
+        num = Number(input);
+        if (input === null || input.trim() === "" || isNaN(num)) {
+            // Invalid input, ask again
+            continue;
+        } else {
+            break;
+        }
+    }
+    return num % 2 === 0 ? "even" : "odd";
+}
