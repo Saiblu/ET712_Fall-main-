@@ -1,0 +1,81 @@
+*{box-sizing: border-box;}
+html{scroll-behavior: smooth;}
+img{width: 100%; display: block;}
+body { font-family: Arial, sans-serif;}
+
+/* Header */
+header {
+  background-color: #00306d;
+}
+.top_header {
+    border: solid yellow;
+    display: flex;
+    justify-content: center;
+}
+.top_header div {
+    border: solid red 1px;
+    width: 32%;
+    padding: 1%;
+    text-align: center;
+}
+
+.nav_header{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.nav_header a{
+    display: inline-block;
+    width: 25%;
+    color: whitesmoke;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 5%;
+    border-right: solid white 2px;
+
+}
+.nav_header a:hover{
+    color: orange;
+}
+
+.bottom_header{
+    background-color: whitesmoke;
+}
+
+.nav_bottom_header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
+}
+
+.nav_bottom_header a {
+    display: inline-block;
+    width: 20%;
+    padding: 2%;
+    color: rgb(0, 48, 109);
+    text-decoration: none;
+}
+.nav_bottom_header a:hover{
+    text-decoration: underline;
+    font-size: 1.05em;
+    color: orange;
+}
+
+
+/* Main */
+/*Introduction image*/
+.intro_img{
+    position: relative;
+}
+
+.intro_p{
+    position:absolute;
+    top: 10%;
+    right: 5%;
+    color: white;
+    font-size: 3em;
+    background-color: rgb(20, 20, 20, 0.8);
+    padding: 0.5em;
+}
