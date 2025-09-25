@@ -1,6 +1,6 @@
 *{box-sizing: border-box;}
 html{scroll-behavior: smooth;}
-img{width: 100%; display: block;}
+img{width: 100%; display: block; height: 100%;}
 body { font-family: Arial, sans-serif;}
 
 /* Header */
@@ -78,4 +78,116 @@ header {
     font-size: 3em;
     background-color: rgb(20, 20, 20, 0.8);
     padding: 0.5em;
+}
+
+/* Info cards */
+.info_cards{
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+}
+.card{
+    width: 300px;
+    height: 400px;
+    border: solid gray 1px;
+    background-color: white;
+    margin: 100px 30px 100px 0px;
+}
+.card_img{
+    height: 50%;
+}
+.card_content{
+    padding: 1em;
+}
+.card_title{
+    color: rgb(0, 48, 109);
+}
+.card_link{
+    color: rgb(0, 48, 109);
+    text-decoration: none;
+}
+.card_paragraph{
+    padding-top: 1.5em;
+}
+.card_link:hover{
+   color: orange;
+   text-decoration: underline;
+}
+
+.card_quicklink{
+    width: 300px;
+    margin: 100px 30px 100px 0px;
+}
+
+.quiklink{
+    display: block;
+    border: 2px orange solid;
+    text-align: center;
+    text-decoration: none;
+    padding: 20px 50px;
+    margin-top: 20px;
+    border-radius: 10px;
+    color:rgb(0, 48, 109);
+    transition: ease-in-out ms;
+}
+.quicklink:hover{
+    background-color: rgb(30, 30, 50);
+    color: white;
+    border: 2px gray solid;
+}
+
+.section_title{
+    text-align: center;
+    width: 100%;
+    margin-top: 50px;
+    color: rgb(0, 48, 109);
+    font-size: 3em;
+}
+.cards2{
+    background-color: white;
+}
+
+/* Footer */
+footer{
+    background-color: rgb(30, 30, 50);
+    color: white;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.footer_left, .footer_center, .footer_right{
+    width: 500px;
+}
+.footer_left a, .footer_center a, .footer_right a{
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 20px;
+}
+.footer_left a, .footer_center a, .footer_right a:hover{
+    color: orange;
+}
+.social_media{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.social_media a{
+    display: inline-block;
+    width: 13%;
+    margin-right: 10px;
+    opacity: 0.7;
+    transition: ease-in-out 600ms;
+}
+.social_media a:hover{
+    opacity: 1;
+}
+
+.copyright{
+    width: 100%;
+    color: orange;
+    text-align: center;
+    margin-top: 100px;
 }
