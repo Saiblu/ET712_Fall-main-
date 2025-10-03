@@ -51,3 +51,25 @@
     padding: 3rem;
     font-size: large;
 }
+
+.username_paragraph {
+    color: red;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* Excerise */
+div.divs2, div.divs3{
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+    margin: 20px;
+    display: inline-block;
+
+}
+.ps1, .ps2, .ps3{
+    text-align: center;
+    padding: 40px;
+    font-size: 25px;
+    font-weight: bold;
+}
