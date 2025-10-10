@@ -1,0 +1,151 @@
+* { box-sizing: border-box; }
+img { width: 100%; display: block; }
+
+.btnpressme {
+  padding: 0.5em 2em;
+  color: whitesmoke;
+  border-radius: 12px;
+  background-color: rgb(50,50,50);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btnactive {
+  background-color: crimson;
+  box-shadow: 0px 0px 3px 1px gray;
+}
+.btninactive {
+  background-color: rgb(50,50,50);
+  box-shadow: none;
+}
+
+#list {
+    padding: 0;
+    margin: 0;
+}
+#list li {
+    width: 200px;
+    padding: 1em 2em;
+    border: 1px solid lightblue;
+    list-style: none;
+    margin-bottom: 8px;
+    background: #f7f7f7;
+    transition: background 0.2s;
+}
+#list li span {
+    display: inline-block;
+    margin-left: 30px;
+    width: 20%;
+}
+#list li:hover {
+    background-color: crimson;
+    cursor: pointer;
+    color: white;
+}
+
+/* Window Event */
+#content {
+    width: 2000px;
+    background-color: lightblue;
+    padding: 20px;
+}
+
+/* Photo gallery scrolling */
+.gallery-container, .maincontainer {
+    width: 1000px;
+    margin: auto;
+}
+.maincontainer {
+   position: relative;
+   z-index: 0;
+}
+.gallery-container {
+    position: relative;
+    z-index: 1;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 40px;
+}
+.gallery-image {
+    width: 50%;
+    height: 300px;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px #ccc;
+    background: #fff;
+}
+.btnright, .btnleft {
+    position: absolute;
+    top: 40%;
+    z-index: 2;
+    background-color: transparent;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    color: aqua;
+    user-select: none;
+}
+.btnright:hover, .btnleft:hover {
+    color: blue;
+}
+.btnleft {
+    left: 0%;
+}
+.btnright {
+    right: 0%;
+}
+
+/* Circle Counter */
+.circle-counter {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #3498db;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    margin: 20px auto;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 0 2px 8px #ccc;
+    transition: background 0.2s;
+}
+.circle-counter:active {
+    background: #217dbb;
+}
+#resetBtn {
+    display: block;
+    margin: 10px auto;
+    padding: 0.5em 2em;
+    font-size: 1em;
+    border-radius: 8px;
+    border: none;
+    background: #e74c3c;
+    color: white;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+#resetBtn:hover {
+    background: #c0392b;
+}
+.gallery-container {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 40px;
+}
+
+.gallery-image {
+    width: 300px; 
+    height: 300px; 
+    object-fit: cover; 
+    border-radius: 8px;
+    box-shadow: 0 2px 8px #ccc;
+    background: #fff;
+    flex-shrink: 0; 
+    margin-right: 0;
+    display: block;
+}

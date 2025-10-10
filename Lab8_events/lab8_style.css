@@ -1,0 +1,20 @@
+```css
+.gallery-container {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 40px;
+}
+
+.gallery-image {
+    width: 220px; /* Set a fixed width for each image */
+    height: 150px; /* Set a fixed height for each image */
+    object-fit: cover; /* Crop images to fit the box */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px #ccc;
+    background: #fff;
+    flex-shrink: 0; /* Prevent images from shrinking */
+    margin-right: 0; /* Remove extra margin if using gap */
+    display: block;
+}
+```
