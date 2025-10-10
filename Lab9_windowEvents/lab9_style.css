@@ -90,3 +90,19 @@ html{scroll-behavior: smooth;}
     width: 300px;
     padding: 2rem
 }
+/* Fixed header styles */
+#fixedHeader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    z-index: 1000;
+    transition: background 0.3s, color 0.3s;
+    padding: 1em 0;
+    text-align: center;
+    box-shadow: 0 2px 8px #ccc;
+}
+body {
+    padding-top: 80px; /* Prevent content from hiding under header */
+}

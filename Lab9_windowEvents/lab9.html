@@ -9,7 +9,7 @@
 <body>
     <h1>Lab 9 by Elias Muniz</h1>
     <p class="displaypexels">Test</p>
-    <section class="images_container" id="openmodal1">
+    <section class="images_container" id="imagesContainer">
         <section>
             <img src="images/image1.jpg" alt="image1" class="img_gallery">
         </section>
@@ -35,27 +35,41 @@
     </section>
 
     <h1>Modal Window</h1>
-    <section class="openmodal">
-        <img src="images/image1.jpg" alt="image1" class="img_gallery">
+    <!-- Trigger images for modals -->
+    <section class="openmodal" id="openmodal1">
+        <img src="images/image1.2.jpg" alt="image1" class="img_gallery">
+    </section>
+    <section class="openmodal" id="openmodal2">
+        <img src="images/image2.jpg" alt="image2" class="img_gallery">
+    </section>
+    <section class="openmodal" id="openmodal3">
+        <img src="images/image3.jpg" alt="image3" class="img_gallery">
     </section>
 
-    <!-- The Modal -->
-     <section class="modal_overlay" id="modalOverlay">
+    <!-- Modal for Image 1 -->
+   <section class="modal_overlay" id="modalOverlay1" style="display:none;">
         <div class="modal"> 
-            <span class="close_btn" id="closeBtn">&times;</span>
-            <h2>Welcome</h2>
-            <div class="modal_info">
-                <img src="images/image1.jpg" alt="image1" class="modal_img">
-                <p class="modal_p">Information paragraph</p>
-            </div>
+            <span class="close_btn" id="closeBtn1">&times;</span>
+            <h2>Image 1.2</h2>
+            <img src="images/image1.2.jpg" alt="image1.2" class="modal_img">
         </div>
-
-        <div class="modal2"> 
-            <span class="close_btn"
-
+    </section>
+    <!-- Modal for Image 2 -->
+    <section class="modal_overlay" id="modalOverlay2" style="display:none;">
+        <div class="modal"> 
+            <span class="close_btn" id="closeBtn2">&times;</span>
+            <h2>Image 2</h2>
+            <img src="images/image2.jpg" alt="image2" class="modal_img">
         </div>
-
-     </section>
+    </section>
+    <!-- Modal for Image 3 -->
+    <section class="modal_overlay" id="modalOverlay3" style="display:none;">
+        <div class="modal"> 
+            <span class="close_btn" id="closeBtn3">&times;</span>
+            <h2>Image 3</h2>
+            <img src="images/image3.jpg" alt="image3" class="modal_img">
+        </div>
+    </section>
     <script src="lab9_script.js"></script>
 </body>
 </html>
