@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <!-- fixed viewport meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework 4</title>
+    <link rel="stylesheet" href="homework4_style.css" />
+</head>
+<body>
+    <main>
+        <h1>Homework 4 — Form Validation & Card Gallery</h1>
+
+        <!-- Exercise 1: Form -->
+        <section class="exercise form-ex">
+            <h2>Exercise 1: Form Validation</h2>
+            <form id="hwForm" novalidate>
+                <label>
+                    Name:
+                    <input type="text" id="name" name="name" />
+                </label>
+                <div class="error" id="err-name"></div>
+
+                <label>
+                    Email:
+                    <input type="text" id="email" name="email" />
+                </label>
+                <div class="error" id="err-email"></div>
+
+                <label>
+                    Password:
+                    <input type="password" id="password" name="password" />
+                </label>
+                <div class="error" id="err-password"></div>
+
+                <button type="submit" id="submitBtn">Submit</button>
+                <div class="success" id="form-success" aria-live="polite"></div>
+            </form>
+        </section>
+
+        <!-- Exercise 2: Card Gallery -->
+        <section class="exercise gallery-ex">
+            <h2>Exercise 2: Card Gallery </h2>
+            <div class="gallery-wrap">
+                <button class="nav left" id="btnLeft" aria-label="Previous">
+                    <!-- SVG left chevron (scalable, accessible) -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                    </svg>
+                </button>
+                <div class="gallery-viewport" id="viewport">
+                    <div class="cards" id="cards">
+                        <!-- 6 cards -->
+                        <article class="card">
+                            <img src="images/image1.jpg" alt="Image 1">
+                            <h3>Card 1</h3>
+                            <p>Short description 1.</p>
+                            <a href="#">Read</a>
+                        </article>
+                        <article class="card">
+                            <img src="Images/image2.jpg" alt="Image 2">
+                            <h3>Card 2</h3>
+                            <p>Short description 2.</p>
+                            <a href="#">Read</a>
+                        </article>
+                        <article class="card">
+                            <img src="Images/image3.jpg" alt="Image 3">
+                            <h3>Card 3</h3>
+                            <p>Short description 3.</p>
+                            <a href="#">Read</a>
+                        </article>
+                        <article class="card">
+                            <img src="Images/image4.jpg" alt="Image 4">
+                            <h3>Card 4</h3>
+                            <p>Short description 4.</p>
+                            <a href="#">Read</a>
+                        </article>
+                        <article class="card">
+                            <img src="Images/image5.jpg" alt="Image 5">
+                            <h3>Card 5</h3>
+                            <p>Short description 5.</p>
+                            <a href="#">Read</a>
+                        </article>
+                        <article class="card">
+                            <img src="Images/image6.jpg" alt="Image 6">
+                            <h3>Card 6</h3>
+                            <p>A picture of a building and its wonderful environment.</p>
+                            <a href="#">Read</a>
+                        </article>
+                    </div>
+                </div>
+                <button class="nav right" id="btnRight" aria-label="Next">
+                    <!-- SVG right chevron -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
+                    </svg>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <script src="homework4_script.js"></script>
+</body>
+</html>
