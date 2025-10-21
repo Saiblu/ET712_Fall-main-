@@ -8,10 +8,10 @@
 </head>
 <body>
     <h1>Elias Muniz</h1>
-    <form class="myform"> 
+    <form class="myform" id="form1"> 
         <legend class="legend" >User Info</legend>
         <section class="formcontrol">
-            <label class="form_label" for="username">Enter Username</label>
+            <label class="form_label" for="username">Enter Username: </label>
             <input class="form_input" id="username" type="text" maxlength="20" placeholder="type username" required>
             <p class="username_error_msg">username must be between 2 and 20 characters.</p>
         </section>
@@ -23,6 +23,31 @@
          </div>
     </form>
 
+    <form class="myform">
+        <h2>Unscramble the Word!</h2>
+        <p>Shuffled word: <strong id="shuffledword"></strong></p> 
+
+        <section class="formcontrol">
+            <input type="text" id="guessInput" placeholder="Type the correct word!....">
+            <p id="wordfeedback"></p>
+
+        </section>
+
+    </form>
+
+    <!-- Lab Exercise: Username availability checker -->
+     <form class="myform">
+        <section class="lab-exercise">
+            <h2>Lab: Username Availability Checker</h2>
+            <form id="labExerciseForm" novalidate>
+                <label for="lab_username">Choose a username:</label>
+                <input type="text" id="lab_username" name="lab_username" autocomplete="off" placeholder="type username">
+                <p id="lab_username_feedback" class="lab-feedback" aria-live="polite"></p>
+
+                <button type="submit" id="lab_submit">Register</button>
+            </form>
+        </section>
+    </form>
     <script src="lab10_script.js" ></script>
     
 </body>
