@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Pre-K Fun Site</title>
+  <link rel="stylesheet" href="project1_styles.css">
+</head>
+<body>
+  <header id="siteHeader">
+    <nav>
+      <ul class="nav-list">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#games">Games</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <h1 id="pageTitle">Pre-K Fun</h1>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <button id="openModalBtn" class="cta">Click Here for More Information!!!</button>
+    </section>
+
+    <section id="gallery" class="cards-section">
+      <h2>Gallery</h2>
+      <div class="gallery-wrap">
+        <button id="leftBtn" class="nav-btn">‹</button>
+        <div class="viewport">
+          <div class="cards" id="cards">
+            <!-- 6 cards to showcase when clicking on the button  -->
+            <article class="card"> <img src="images/image1.jpg" alt=""><h3>1</h3></article>
+            <article class="card"> <img src="images/image2.jpg" alt=""><h3>2</h3></article>
+            <article class="card"> <img src="images/image3.jpg" alt=""><h3>3</h3></article>
+            <article class="card"> <img src="images/image4.jpg" alt=""><h3>4</h3></article>
+            <article class="card"> <img src="images/image5.jpg" alt=""><h3>5</h3></article>
+            <article class="card"> <img src="images/image6.jpg" alt=""><h3>6</h3></article>
+          </div>
+        </div>
+        <button id="rightBtn" class="nav-btn">›</button>
+      </div>
+    </section>
+
+    <section id="games">
+      <h2>Interactive</h2>
+      <div class="slideshow" id="slideshow">
+        <div class="slide">Slide 1</div>
+        <div class="slide">Slide 2</div>
+        <div class="slide">Slide 3</div>
+      </div>
+      <div class="circle-counter" id="clickCircle">0</div>
+      <button id="resetCircle">Reset</button>
+    </section>
+
+    <section id="lab" class="lab-exercise">
+      <h2>Username Checker</h2>
+      <form id="labForm" novalidate>
+        <input id="lab_username" placeholder="type username">
+        <p id="lab_feedback"></p>
+        <button id="lab_submit" type="submit">Register</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <button id="toTop" title="Go to top">Top</button>
+    <p>© Pre-K Fun</p>
+  </footer>
+
+  <!-- modals -->
+  <div class="modal_overlay" id="modal" aria-hidden="true" style="display:none;">
+    <div class="modal_win">
+      <button id="modalClose" class="close">×</button>
+      <h3>About</h3>
+      <p>Fun facts for kids.</p>
+    </div>
+  </div>
+
+  <script src="project1_script.js"></script>
+</body>
+</html>
