@@ -1,84 +1,248 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Pre-K Fun Site</title>
-  <link rel="stylesheet" href="project1_styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BrightKids — Learn & Play</title>
+  <link rel="stylesheet" href="project1_styles.css" />
 </head>
 <body>
   <header id="siteHeader">
-    <nav>
+    <div class="brand">
+      <img src="images/logo.jpg" alt="BrightKids logo" class="logo" />
+      <h1 id="siteTitle">BrightKids</h1>
+    </div>
+    <nav aria-label="Main navigation">
       <ul class="nav-list">
         <li><a href="#home">Home</a></li>
-        <li><a href="#gallery">Gallery</a></li>
         <li><a href="#games">Games</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#alphabet">Alphabet</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#about">About</a></li>
       </ul>
     </nav>
-    <h1 id="pageTitle">Pre-K Fun</h1>
   </header>
 
   <main>
+    <!-- HERO -->
     <section id="home" class="hero">
-      <button id="openModalBtn" class="cta">Click Here for More Information!!!</button>
+      <div class="hero-inner">
+        <h2>Learn colors, shapes, numbers and letters</h2>
+        <p>Interactive activities for pre-K children</p>
+        <div class="hero-actions">
+          <button id="openAbout" class="btn-primary">About</button>
+          <a href="#games" class="btn-outline">Play Games</a>
+        </div>
+      </div>
     </section>
 
-    <section id="gallery" class="cards-section">
+
+    <!-- ALPHABET FLASHCARDS -->
+    <section id="alphabet" class="section">
+      <h2>Alphabet Cards</h2>
+      <p>Click a card to flip it</p>
+      <div id="flashcards" class="cards-grid">
+        <!-- sample 6 cards; add more as needed -->
+        <button class="flashcard" data-letter="A" aria-pressed="false"><span class="front">A</span><span class="back">Apple</span></button>
+        <button class="flashcard" data-letter="B" aria-pressed="false"><span class="front">B</span><span class="back">Ball</span></button>
+        <button class="flashcard" data-letter="C" aria-pressed="false"><span class="front">C</span><span class="back">Cat</span></button>
+        <button class="flashcard" data-letter="D" aria-pressed="false"><span class="front">D</span><span class="back">Dog</span></button>
+        <button class="flashcard" data-letter="E" aria-pressed="false"><span class="front">E</span><span class="back">Egg</span></button>
+        <button class="flashcard" data-letter="F" aria-pressed="false"><span class="front">F</span><span class="back">Fish</span></button>
+        <button class="flashcard" data-letter="G" aria-pressed="false"><span class="front">G</span><span class="back">Goat</span></button>
+        <button class="flashcard" data-letter="H" aria-pressed="false"><span class="front">H</span><span class="back">Hat</span></button>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="section">
       <h2>Gallery</h2>
-      <div class="gallery-wrap">
-        <button id="leftBtn" class="nav-btn">‹</button>
-        <div class="viewport">
-          <div class="cards" id="cards">
-            <!-- 6 cards to showcase when clicking on the button  -->
-            <article class="card"> <img src="images/image1.jpg" alt=""><h3>1</h3></article>
-            <article class="card"> <img src="images/image2.jpg" alt=""><h3>2</h3></article>
-            <article class="card"> <img src="images/image3.jpg" alt=""><h3>3</h3></article>
-            <article class="card"> <img src="images/image4.jpg" alt=""><h3>4</h3></article>
-            <article class="card"> <img src="images/image5.jpg" alt=""><h3>5</h3></article>
-            <article class="card"> <img src="images/image6.jpg" alt=""><h3>6</h3></article>
+      <div class="gallery">
+        <img src="images/image1.jpg" alt="Colorful blocks" class="gallery-img" id="openmodal1">
+        <img src="images/image2.jpg" alt="Counting toys" class="gallery-img">
+        <img src="images/image3.jpg" alt="Playtime" class="gallery-img">
+        <img src="images/image4.jpg" alt="Learning shapes" class="gallery-img">
+        <img src="images/image5.jpg" alt="" class="gallery-img">
+        <img src="images/image6.jpg" alt="" class="gallery-img">
+      </div>
+    </section>
+
+    <!-- COLORS -->
+    <section id="colors" class="section">
+      <h2>Colors</h2>
+      <p>Tap a swatch to hear/see the color name.</p>
+      <div class="swatches">
+        <button class="swatch" data-name="Red" style="background:#ff3b30"></button>
+        <button class="swatch" data-name="Orange" style="background:#ff9500"></button>
+        <button class="swatch" data-name="Yellow" style="background:#ffd60a"></button>
+        <button class="swatch" data-name="Green" style="background:#34c759"></button>
+        <button class="swatch" data-name="Blue" style="background:#007aff"></button>
+        <button class="swatch" data-name="Purple" style="background:#5856d6"></button>
+      </div>
+      <div class="swatch-feedback" aria-live="polite"></div>
+    </section>
+
+    <!-- NUMBERS -->
+    <section id="numbers" class="section">
+      <h2>Numbers</h2>
+      <p>Tap the number to count.</p>
+      <div class="numbers-row-wrapper">
+        <div class="numbers-row">
+          <button class="num-btn" data-value="1">1</button>
+          <button class="num-btn" data-value="2">2</button>
+          <button class="num-btn" data-value="3">3</button>
+          <button class="num-btn" data-value="4">4</button>
+          <button class="num-btn" data-value="5">5</button>
+          <button class="num-btn" data-value="6">6</button>
+          <button class="num-btn" data-value="7">7</button>
+          <button class="num-btn" data-value="8">8</button>
+          <button class="num-btn" data-value="9">9</button>
+          <button class="num-btn" data-value="10">10</button>
+          <button class="num-btn" data-value="11">11</button>
+          <button class="num-btn" data-value="12">12</button>
+          <button class="num-btn" data-value="13">13</button>
+          <button class="num-btn" data-value="14">14</button>
+          <button class="num-btn" data-value="15">15</button>
+          <button class="num-btn" data-value="16">16</button>
+        </div>
+        <div class="number-display" aria-live="polite">Tap a number</div>
+      </div>
+    </section>
+
+    <!-- GAMES -->
+    <section id="games" class="section">
+      <h2>Interactive</h2>
+      <div class="grid three">
+        <article class="card">
+          <h3>Counting Circle</h3>
+          <div class="circle-counter" id="clickCircle">0</div>
+          <button id="resetCircle" class="small-btn">Reset</button>
+        </article>
+
+        <article class="card">
+          <h3>Slideshow</h3>
+          <!-- slideshow HTML -->
+          <div id="slideshow" class="slideshow" aria-live="polite">
+            <div class="slide" data-desc="A red apple.">
+              <img src="images/apple.jpg" alt="Apple">
+            </div>
+            <div class="slide" data-desc="A Basketball.">
+              <img src="images/ball.jpg" alt="Ball">
+            </div>
+            <div class="slide" data-desc="A cute cat.">
+              <img src="images/cat.jpg" alt="Cat">
+            </div>
+            <div class="slide" data-desc="A bird.">
+              <img src="images/bird.jpg" alt="Bird">
+            </div>
+          </div>
+
+          <!-- description shown under the slideshow -->
+          <div id="slideshowDesc" class="slideshow-desc" aria-live="polite"></div>
+        </article>
+
+        <article class="card">
+          <h3>Go to Top</h3>
+          <p>Use the button below to jump back up.</p>
+
+          <!-- Inline button the user asked for -->
+          <button id="inlineTopBtn" class="inline-top-btn" type="button" aria-label="Go to top from this section">
+            ↑ Go to top
+          </button>
+        </article>
+      </div>
+    </section>
+
+    <!-- ANIMALS -->
+    <section id="animals" class="section">
+      <h2>Animals</h2>
+      <p>Tap an animal to see their name.</p>
+      <div class="animals-row-wrapper">
+        <div class="animals-row">
+          <button class="animal" data-name="Dog" data-audio="media/dog.mp3">
+            <img src="images/dog.jpg" alt="Dog">
+            <div class="label"></div>
+          </button>
+          <button class="animal" data-name="Cat" data-audio="media/cat.mp3">
+            <img src="images/cat2.jpg" alt="Cat">
+            <div class="label"></div>
+          </button>
+          <button class="animal" data-name="Cow" data-audio="media/cow.mp3">
+            <img src="images/cow.jpg" alt="Cow">
+      
+          </button>
+          <button class="animal" data-name="Sheep" data-audio="media/sheep.mp3">
+            <img src="images/sheep.jpg" alt="Sheep">
+            
+          </button>
+          <button class="animal" data-name="Horse" data-audio="media/horse.mp3">
+            <img src="images/horse.jpg" alt="Horse">
+            
+          </button>
+        </div>
+        <div class="animal-feedback" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- SHAPES -->
+    <section id="shapes" class="section">
+      <h2>Shapes</h2>
+      <p>Tap to highlight the shape name.</p>
+      <div class="shapes-row">
+        <button class="shape" data-name="Circle">◯</button>
+        <button class="shape" data-name="Square">▢</button>
+        <button class="shape" data-name="Triangle">▵</button>
+        <button class="shape" data-name="Star">★</button>
+      </div>
+      <div class="shape-feedback" aria-live="polite"></div>
+    </section>
+
+    <!-- TRANSPORTATION -->
+    <section id="transport" class="section">
+      <h2>Transportation</h2>
+      <p>Slide through vehicles.</p>
+      <div class="transport-gallery">
+        <button class="trans-btn" data-index="0">◀</button>
+        <div class="transport-viewport">
+          <div class="transport-cards">
+            <div class="transport-card"><img src="images/car.jpg" alt="Car"><div>Car</div></div>
+            <div class="transport-card"><img src="images/bus.jpg" alt="Bus"><div>Bus</div></div>
+            <div class="transport-card"><img src="images/train.jpg" alt="Train"><div>Train</div></div>
           </div>
         </div>
-        <button id="rightBtn" class="nav-btn">›</button>
+        <button class="trans-btn" data-index="1">▶</button>
       </div>
     </section>
 
-    <section id="games">
-      <h2>Interactive</h2>
-      <div class="slideshow" id="slideshow">
-        <div class="slide">Slide 1</div>
-        <div class="slide">Slide 2</div>
-        <div class="slide">Slide 3</div>
+    <!-- CLOTHING -->
+    <section id="clothing" class="section">
+      <h2>Clothing</h2>
+      <p>Tap an outfit to try on (image swap).</p>
+      <div class="clothing-row">
+        <button class="outfit" data-img="images/outfit1.jpg"><img src="images/outfit1_thumb.jpg" alt="Outfit 1"><div>Red Shirt</div></button>
+        <button class="outfit" data-img="images/outfit2.jpg"><img src="images/outfit2_thumb.jpg" alt="Outfit 2"><div>Blue Dress</div></button>
+        <button class="outfit" data-img="images/outfit3.jpg"><img src="images/outfit3_thumb.jpg" alt="Outfit 3"><div>Jacket</div></button>
       </div>
-      <div class="circle-counter" id="clickCircle">0</div>
-      <button id="resetCircle">Reset</button>
+      <div class="outfit-display"><img src="images/outfit_placeholder.jpg" alt="Try outfit" id="outfitPreview"></div>
     </section>
 
-    <section id="lab" class="lab-exercise">
-      <h2>Username Checker</h2>
-      <form id="labForm" novalidate>
-        <input id="lab_username" placeholder="type username">
-        <p id="lab_feedback"></p>
-        <button id="lab_submit" type="submit">Register</button>
-      </form>
+    <!-- FOOTER INFO / ABOUT -->
+    <section id="about" class="section">
+      <h2>About BrightKids</h2>
+      <p>BrightKids is a simple, safe educational site for early learners.</p>
     </section>
   </main>
 
   <footer>
-    <button id="toTop" title="Go to top">Top</button>
-    <p>© Pre-K Fun</p>
+    <p>© BrightKids — Created for learning</p>
   </footer>
 
-  <!-- modals -->
-  <div class="modal_overlay" id="modal" aria-hidden="true" style="display:none;">
-    <div class="modal_win">
-      <button id="modalClose" class="close">×</button>
-      <h3>Bananas Are Berries, But Strawberries Aren't!</h3>
-      <p>It might sound bananas, but it's true! Botanically, 
-        bananas are classified as berries, while strawberries aren't. 
-        Strawberries are actually considered aggregate fruits because they form from multiple ovaries of a single flower. 
-        So next time you're munching on a banana, 
-        remember you're eating a berry!</p>
+  <!-- Modal (about) -->
+  <div id="modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="modalTitle" style="display:none;">
+    <div class="modal-window">
+      <button id="modalClose" class="modal-close" aria-label="Close">×</button>
+      <h3 id="modalTitle">About BrightKids</h3>
+      <p>Short info and safe learning activities for children.</p>
     </div>
   </div>
 
