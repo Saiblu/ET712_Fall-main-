@@ -26,16 +26,16 @@ main{max-width:1100px;margin:24px auto;padding:0 16px}
 .circle-counter{width:110px;height:110px;border-radius:50%;background:var(--accent-2);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:2rem;cursor:pointer;margin:10px auto;box-shadow:0 6px 12px rgba(0,0,0,.08)}
 .small-btn{display:block;margin:8px auto;padding:6px 12px;border-radius:8px;border:1px solid #ddd;background:#fff}
 
-.slideshow{width:480px;max-width:90%;height:240px;margin:0 auto;overflow:hidden;display:flex;align-items:center;justify-content:center;border-radius:8px;background:#fff}
-.slide{width:100%;height:100%;display:none;align-items:center;justify-content:center}
-.slide.active{display:flex}
-.slideshow .slide img{width:100%;height:100%;object-fit:cover;display:block;border-radius:6px}
+.slideshow{width:80%;max-width:720px;aspect-ratio:16/9;margin:0 auto;overflow:hidden;border-radius:8px;background:#f3f3f3;display:flex;align-items:center;justify-content:center}
+.slide{width:100%;height:100%;display:none}
+.slide.active{display:block}
+.slideshow .slide img{width:100%;height:100%;object-fit:cover;display:block}
 
 /* Slideshow: force uniform medium size slides */
 .slideshow {
-  width: 450px;        /* medium width */
-  max-width: 90%;      /* responsive fallback */
-  height: 350px;       /* medium height */
+  width: 500px;        /* medium width */
+  max-width: 100%;      /* responsive fallback */
+  height: 400px;       /* medium height */
   margin: 0 auto;      /* center */
   overflow: hidden;
   display: flex;
@@ -251,11 +251,12 @@ footer{padding:12px;text-align:center;color:var(--muted)}
 .shape-feedback { margin-top:8px; font-weight:700; }
 
 /* Transport */
-.transport-gallery { display:flex; align-items:center; justify-content:center; gap:12px; margin:0 auto; }
-.transport-viewport { width:680px; max-width:92%; overflow:hidden; border-radius:10px; background:#fff; border:1px solid #eee; }
+.transport-gallery { display:flex; align-items:center; justify-content:center; gap:12px; margin:16px auto; }
+.transport-viewport { width:760px;      /* wider viewport */ max-width:95%;    /* responsive fallback */ overflow:hidden; border-radius:12px; background:#fff; border:1px solid #eee; }
 .transport-cards { display:flex; transition:transform 300ms ease; will-change:transform; }
-.transport-card { flex:0 0 100%; box-sizing:border-box; padding:12px; text-align:center; }
-.transport-card img { width:100%; height:260px; object-fit:cover; border-radius:8px; }
+.transport-card { flex:0 0 100%; box-sizing:border-box; padding:14px; text-align:center; }
+.transport-card img { width:100%; height:320px;      /* increased height for bigger cards */ object-fit:cover; border-radius:10px; }
+.transport-card div { margin-top:10px; font-weight:700; font-size:1.05rem; }
 
 /* make viewport smaller on small screens */
 @media (max-width: 900px) {
@@ -439,9 +440,306 @@ header#siteHeader .nav-list {
   transform: translateY(0);
 }
 
-/* responsive smaller screens */
-@media (max-width:700px) {
-  .num-btn { width: 60px; height: 60px; font-size: 1.2rem; }
-  .numbers-row-wrapper { max-width: 100%; padding: 6px; }
-  .number-display { font-size: 1rem; }
+/* Make transportation slideshow a bit smaller (paste into project1_styles.css) */
+.transport-viewport {
+  width: 520px;       /* slightly smaller viewport (was 680px) */
+  max-width: 92%;
+}
+
+.transport-card img {
+  width: 100%;
+  height: 180px;      /* medium/smaller image height (was 260px) */
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Transportation — larger/wider cards (paste into project1_styles.css) */
+.transport-gallery {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 16px auto;
+}
+
+.transport-viewport {
+  width: 760px;      /* wider viewport */
+  max-width: 95%;    /* responsive fallback */
+  overflow: hidden;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid #eee;
+}
+
+.transport-cards {
+  display: flex;
+  transition: transform 300ms ease;
+  will-change: transform;
+}
+
+/* Each transport card fills the viewport width (one per view) */
+.transport-card {
+  flex: 0 0 100%;
+  box-sizing: border-box;
+  padding: 14px;
+  text-align: center;
+}
+
+/* Larger images */
+.transport-card img {
+  width: 100%;
+  height: 320px;      /* increased height for bigger cards */
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Card caption styling */
+.transport-card div {
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+/* Smaller breakpoints */
+@media (max-width: 1000px) {
+  .transport-viewport { width: 620px; }
+  .transport-card img { height: 260px; }
+}
+@media (max-width: 700px) {
+  .transport-viewport { width: 360px; }
+  .transport-card img { height: 180px; }
+}
+
+/* Shapes slideshow — medium size, centered */
+.shapes-slideshow-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 12px auto;
+}
+
+.shapes-slideshow {
+  width: 520px;           /* medium width */
+  max-width: 92%;
+  aspect-ratio: 4 / 3;    /* keeps medium box shape */
+  overflow: hidden;
+  border-radius: 10px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+.shape-slide {
+  width: 100%;
+  height: 100%;
+  display: none;          /* JS toggles .active */
+  align-items: center;
+  justify-content: center;
+}
+
+.shape-slide.active { display: flex; }
+
+.shape-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;    /* show full shape, no crop */
+  display: block;
+  padding: 8px;           /* small padding so shape isn't flush */
+}
+
+/* nav buttons */
+.shape-nav {
+  background: #0077cc;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 12px;
+  cursor: pointer;
+  font-size: 1.05rem;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+}
+
+/* description under slideshow */
+.slideshow-desc {
+  max-width: 520px;
+  margin: 8px auto 18px;
+  text-align: center;
+  font-weight: 700;
+  color: #333;
+  font-size: 1rem;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.6);
+}
+
+/* responsive adjustments */
+@media (max-width: 900px) {
+  .shapes-slideshow { width: 420px; aspect-ratio: 4/3; }
+  .slideshow-desc { max-width: 420px; }
+}
+@media (max-width: 520px) {
+  .shapes-slideshow { width: 320px; aspect-ratio: 4/3; }
+  .shape-nav { padding: 8px 10px; font-size: 0.95rem; }
+  .slideshow-desc { max-width: 320px; font-size: 0.95rem; }
+}
+
+/* Transportation slideshow — medium, centered, responsive */
+.transport-slideshow-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 12px auto;
+}
+
+.transport-slideshow {
+  width: 560px;           /* medium width */
+  max-width: 92%;
+  aspect-ratio: 4 / 3;    /* keeps medium box shape */
+  overflow: hidden;
+  border-radius: 10px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+.transport-slide {
+  width: 100%;
+  height: 100%;
+  display: none;          /* JS toggles .active */
+  align-items: center;
+  justify-content: center;
+}
+
+.transport-slide.active { display: flex; }
+
+.transport-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;    /* show full vehicle, no crop */
+  display: block;
+  padding: 8px;           /* small padding so image isn't flush */
+  background: #fff;
+  border-radius: 8px;
+}
+
+/* nav buttons */
+.transport-nav {
+  background: #0077cc;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 12px;
+  cursor: pointer;
+  font-size: 1.05rem;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+}
+
+/* description under slideshow */
+.slideshow-desc {
+  max-width: 560px;
+  margin: 8px auto 18px;
+  text-align: center;
+  font-weight: 700;
+  color: #333;
+  font-size: 1rem;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.6);
+}
+
+/* responsive adjustments */
+@media (max-width: 900px) {
+  .transport-slideshow { width: 460px; }
+  .slideshow-desc { max-width: 460px; }
+}
+@media (max-width: 520px) {
+  .transport-slideshow { width: 320px; }
+  .transport-nav { padding: 8px 10px; font-size: 0.95rem; }
+  .slideshow-desc { max-width: 320px; font-size: 0.95rem; }
+}
+
+/* Clothing slideshow — medium size, centered */
+.clothing-slideshow-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 12px auto;
+}
+
+.clothing-slideshow {
+  width: 520px;           /* medium width */
+  max-width: 92%;
+  aspect-ratio: 4 / 3;    /* medium box shape */
+  overflow: hidden;
+  border-radius: 10px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+.clothing-slide {
+  width: 100%;
+  height: 100%;
+  display: none;          /* JS toggles .active */
+  align-items: center;
+  justify-content: center;
+}
+
+.clothing-slide.active { display: flex; }
+
+.clothing-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;    /* show entire outfit, no crop */
+  display: block;
+  padding: 8px;           /* small padding */
+  border-radius: 8px;
+}
+
+/* nav buttons */
+.clothing-nav {
+  background: #0077cc;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 12px;
+  cursor: pointer;
+  font-size: 1.05rem;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+}
+
+/* description under slideshow */
+.slideshow-desc {
+  max-width: 520px;
+  margin: 8px auto 18px;
+  text-align: center;
+  font-weight: 700;
+  color: #333;
+  font-size: 1rem;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.6);
+}
+
+/* responsive adjustments */
+@media (max-width: 900px) {
+  .clothing-slideshow { width: 420px; }
+  .slideshow-desc { max-width: 420px; }
+}
+@media (max-width: 520px) {
+  .clothing-slideshow { width: 320px; }
+  .clothing-nav { padding: 8px 10px; font-size: 0.95rem; }
+  .slideshow-desc { max-width: 320px; font-size: 0.95rem; }
 }

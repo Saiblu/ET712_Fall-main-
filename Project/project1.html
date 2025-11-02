@@ -70,7 +70,7 @@
     <!-- COLORS -->
     <section id="colors" class="section">
       <h2>Colors</h2>
-      <p>Tap a swatch to hear/see the color name.</p>
+      <p>Tap a color. </p>
       <div class="swatches">
         <button class="swatch" data-name="Red" style="background:#ff3b30"></button>
         <button class="swatch" data-name="Orange" style="background:#ff9500"></button>
@@ -135,6 +135,9 @@
             <div class="slide" data-desc="A bird.">
               <img src="images/bird.jpg" alt="Bird">
             </div>
+            <div class="slide" data-desc="A Giraffe">
+                <img src="images/giraffe.jpg" alt="Giraffe">
+            </div>
           </div>
 
           <!-- description shown under the slideshow -->
@@ -147,7 +150,7 @@
 
           <!-- Inline button the user asked for -->
           <button id="inlineTopBtn" class="inline-top-btn" type="button" aria-label="Go to top from this section">
-            ↑ Go to top
+            Go to top
           </button>
         </article>
       </div>
@@ -159,23 +162,23 @@
       <p>Tap an animal to see their name.</p>
       <div class="animals-row-wrapper">
         <div class="animals-row">
-          <button class="animal" data-name="Dog" data-audio="media/dog.mp3">
+          <button class="animal" data-name="Dog">
             <img src="images/dog.jpg" alt="Dog">
             <div class="label"></div>
           </button>
-          <button class="animal" data-name="Cat" data-audio="media/cat.mp3">
+          <button class="animal" data-name="Cat">
             <img src="images/cat2.jpg" alt="Cat">
             <div class="label"></div>
           </button>
-          <button class="animal" data-name="Cow" data-audio="media/cow.mp3">
+          <button class="animal" data-name="Cow">
             <img src="images/cow.jpg" alt="Cow">
       
           </button>
-          <button class="animal" data-name="Sheep" data-audio="media/sheep.mp3">
+          <button class="animal" data-name="Sheep">
             <img src="images/sheep.jpg" alt="Sheep">
             
           </button>
-          <button class="animal" data-name="Horse" data-audio="media/horse.mp3">
+          <button class="animal" data-name="Horse">
             <img src="images/horse.jpg" alt="Horse">
             
           </button>
@@ -187,43 +190,87 @@
     <!-- SHAPES -->
     <section id="shapes" class="section">
       <h2>Shapes</h2>
-      <p>Tap to highlight the shape name.</p>
-      <div class="shapes-row">
-        <button class="shape" data-name="Circle">◯</button>
-        <button class="shape" data-name="Square">▢</button>
-        <button class="shape" data-name="Triangle">▵</button>
-        <button class="shape" data-name="Star">★</button>
+      <p>Tap arrows to view shapes.</p>
+
+      <div class="shapes-slideshow-wrap">
+        <button class="shape-nav" id="shapePrev" aria-label="Previous shape">◀</button>
+
+        <div class="shapes-slideshow" id="shapesSlideshow" aria-live="polite">
+          <div class="shape-slide" data-desc="Circle — round shape">
+            <img src="images/circle.jpg" alt="Circle">
+          </div>
+          <div class="shape-slide" data-desc="Square — four equal sides">
+            <img src="images/square.jpg" alt="Square">
+          </div>
+          <div class="shape-slide" data-desc="Triangle — three sides">
+            <img src="images/triangle.jpg" alt="Triangle">
+          </div>
+          <div class="shape-slide" data-desc="Star — five-pointed star">
+            <img src="images/star.jpg" alt="Star">
+          </div>
+        </div>
+
+        <button class="shape-nav" id="shapeNext" aria-label="Next shape">▶</button>
       </div>
-      <div class="shape-feedback" aria-live="polite"></div>
+
+      <div id="shapesDesc" class="slideshow-desc" aria-live="polite">Tap next to see shapes.</div>
     </section>
 
     <!-- TRANSPORTATION -->
     <section id="transport" class="section">
       <h2>Transportation</h2>
-      <p>Slide through vehicles.</p>
-      <div class="transport-gallery">
-        <button class="trans-btn" data-index="0">◀</button>
-        <div class="transport-viewport">
-          <div class="transport-cards">
-            <div class="transport-card"><img src="images/car.jpg" alt="Car"><div>Car</div></div>
-            <div class="transport-card"><img src="images/bus.jpg" alt="Bus"><div>Bus</div></div>
-            <div class="transport-card"><img src="images/train.jpg" alt="Train"><div>Train</div></div>
+      <p>Tap arrows to view vehicles.</p>
+
+      <div class="transport-slideshow-wrap">
+        <button class="transport-nav" id="transportPrev" aria-label="Previous vehicle">◀</button>
+
+        <div class="transport-slideshow" id="transportSlideshow" aria-live="polite">
+          <div class="transport-slide" data-desc="Car — small vehicle for family">
+            <img src="images/car.jpg" alt="Car">
           </div>
+          <div class="transport-slide" data-desc="Bus — big vehicle for many people">
+            <img src="images/bus.jpg" alt="Bus">
+          </div>
+          <div class="transport-slide" data-desc="Train — runs on tracks for long trips">
+            <img src="images/train.jpg" alt="Train">
+          </div>
+          <!-- add more slides if you want -->
         </div>
-        <button class="trans-btn" data-index="1">▶</button>
+
+        <button class="transport-nav" id="transportNext" aria-label="Next vehicle">▶</button>
       </div>
+
+      <div id="transportDesc" class="slideshow-desc" aria-live="polite">Tap next to see vehicles.</div>
     </section>
 
     <!-- CLOTHING -->
     <section id="clothing" class="section">
       <h2>Clothing</h2>
-      <p>Tap an outfit to try on (image swap).</p>
-      <div class="clothing-row">
-        <button class="outfit" data-img="images/outfit1.jpg"><img src="images/outfit1_thumb.jpg" alt="Outfit 1"><div>Red Shirt</div></button>
-        <button class="outfit" data-img="images/outfit2.jpg"><img src="images/outfit2_thumb.jpg" alt="Outfit 2"><div>Blue Dress</div></button>
-        <button class="outfit" data-img="images/outfit3.jpg"><img src="images/outfit3_thumb.jpg" alt="Outfit 3"><div>Jacket</div></button>
+      <p>Tap arrows to view different kinds of clothing items.</p>
+
+      <div class="clothing-slideshow-wrap">
+        <button class="clothing-nav" id="clothingPrev" aria-label="Previous outfit">◀</button>
+
+        <div class="clothing-slideshow" id="clothingSlideshow" aria-live="polite">
+          <div class="clothing-slide" data-desc="Red shirt — comfy and bright">
+            <img src="images/T-shirt.jpg" alt="Red shirt outfit">
+          </div>
+          <div class="clothing-slide" data-desc="Blue dress — playful and soft">
+            <img src="images/dress.jpg" alt="Blue dress outfit">
+          </div>
+          <div class="clothing-slide" data-desc="Jacket — warm for cool days">
+            <img src="images/Coat.jpg" alt="Jacket outfit">
+          </div>
+          <div class="clothing-slide" data-desc="Blue jeans — casual and comfortable">
+            <img src="images/Jeans.jpg" alt="Blue jeans outfit">
+          </div>
+          <!-- add more slides as needed -->
+        </div>
+
+        <button class="clothing-nav" id="clothingNext" aria-label="Next outfit">▶</button>
       </div>
-      <div class="outfit-display"><img src="images/outfit_placeholder.jpg" alt="Try outfit" id="outfitPreview"></div>
+
+      <div id="clothingDesc" class="slideshow-desc" aria-live="polite">Tap next to see outfits.</div>
     </section>
 
     <!-- FOOTER INFO / ABOUT -->

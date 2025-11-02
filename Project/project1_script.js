@@ -306,6 +306,170 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
   })();
-});
 
-// CSS code has been moved to a separate file named 'project1_style.css'.
+  // --- Shapes slideshow: nav + auto-advance + desc update
+  (function () {
+    var slides = document.querySelectorAll('#shapesSlideshow .shape-slide');
+    var descEl = document.getElementById('shapesDesc');
+    var prevBtn = document.getElementById('shapePrev');
+    var nextBtn = document.getElementById('shapeNext');
+    if (!slides || slides.length === 0) return;
+
+    var idx = 0;
+    function show(i) {
+      slides.forEach(function (s, n) { s.classList.toggle('active', n === i); });
+      if (descEl) descEl.textContent = slides[i].getAttribute('data-desc') || '';
+    }
+
+    show(idx);
+
+    // manual nav
+    if (prevBtn) prevBtn.addEventListener('click', function () {
+      idx = (idx - 1 + slides.length) % slides.length;
+      show(idx);
+      resetAuto();
+    });
+    if (nextBtn) nextBtn.addEventListener('click', function () {
+      idx = (idx + 1) % slides.length;
+      show(idx);
+      resetAuto();
+    });
+
+    // auto advance every 4s
+    var auto = setInterval(function () {
+      idx = (idx + 1) % slides.length;
+      show(idx);
+    }, 4000);
+
+    function resetAuto() {
+      clearInterval(auto);
+      auto = setInterval(function () {
+        idx = (idx + 1) % slides.length;
+        show(idx);
+      }, 4000);
+    }
+
+    // allow click on slide to advance as well
+    var slideshowWrap = document.getElementById('shapesSlideshow');
+    if (slideshowWrap) {
+      slideshowWrap.addEventListener('click', function () {
+        idx = (idx + 1) % slides.length;
+        show(idx);
+        resetAuto();
+      });
+    }
+
+    // update on resize (not strictly necessary here)
+    window.addEventListener('resize', function () { show(idx); }, { passive: true });
+  })();
+
+  // --- Transportation slideshow: nav + auto-advance + desc update
+  (function () {
+    var slides = document.querySelectorAll('#transportSlideshow .transport-slide');
+    var descEl = document.getElementById('transportDesc');
+    var prevBtn = document.getElementById('transportPrev');
+    var nextBtn = document.getElementById('transportNext');
+    if (!slides || slides.length === 0) return;
+
+    var idx = 0;
+    function show(i) {
+      slides.forEach(function (s, n) { s.classList.toggle('active', n === i); });
+      if (descEl) descEl.textContent = slides[i].getAttribute('data-desc') || '';
+    }
+
+    show(idx);
+
+    // manual nav
+    if (prevBtn) prevBtn.addEventListener('click', function () {
+      idx = (idx - 1 + slides.length) % slides.length;
+      show(idx);
+      resetAuto();
+    });
+    if (nextBtn) nextBtn.addEventListener('click', function () {
+      idx = (idx + 1) % slides.length;
+      show(idx);
+      resetAuto();
+    });
+
+    // auto advance every 4s
+    var auto = setInterval(function () {
+      idx = (idx + 1) % slides.length;
+      show(idx);
+    }, 4000);
+
+    function resetAuto() {
+      clearInterval(auto);
+      auto = setInterval(function () {
+        idx = (idx + 1) % slides.length;
+        show(idx);
+      }, 4000);
+    }
+
+    // click slide to advance as well
+    var slideshowWrap = document.getElementById('transportSlideshow');
+    if (slideshowWrap) {
+      slideshowWrap.addEventListener('click', function () {
+        idx = (idx + 1) % slides.length;
+        show(idx);
+        resetAuto();
+      });
+    }
+
+    window.addEventListener('resize', function () { show(idx); }, { passive: true });
+  })();
+
+  // --- Clothing slideshow: nav + auto-advance + desc update
+  (function () {
+    var slides = document.querySelectorAll('#clothingSlideshow .clothing-slide');
+    var descEl = document.getElementById('clothingDesc');
+    var prevBtn = document.getElementById('clothingPrev');
+    var nextBtn = document.getElementById('clothingNext');
+    if (!slides || slides.length === 0) return;
+
+    var idx = 0;
+    function show(i) {
+      slides.forEach(function (s, n) { s.classList.toggle('active', n === i); });
+      if (descEl) descEl.textContent = slides[i].getAttribute('data-desc') || '';
+    }
+
+    show(idx);
+
+    // manual nav
+    if (prevBtn) prevBtn.addEventListener('click', function () {
+      idx = (idx - 1 + slides.length) % slides.length;
+      show(idx);
+      resetAuto();
+    });
+    if (nextBtn) nextBtn.addEventListener('click', function () {
+      idx = (idx + 1) % slides.length;
+      show(idx);
+      resetAuto();
+    });
+
+    // auto advance every 4s
+    var auto = setInterval(function () {
+      idx = (idx + 1) % slides.length;
+      show(idx);
+    }, 4000);
+
+    function resetAuto() {
+      clearInterval(auto);
+      auto = setInterval(function () {
+        idx = (idx + 1) % slides.length;
+        show(idx);
+      }, 4000);
+    }
+
+    // click slide to advance
+    var slideshowWrap = document.getElementById('clothingSlideshow');
+    if (slideshowWrap) {
+      slideshowWrap.addEventListener('click', function () {
+        idx = (idx + 1) % slides.length;
+        show(idx);
+        resetAuto();
+      });
+    }
+
+    window.addEventListener('resize', function () { show(idx); }, { passive: true });
+  })();
+});
