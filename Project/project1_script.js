@@ -109,18 +109,48 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // --- Color, Number, Animal, Shape, Transport, Clothing Interactions ---
   (function () {
-    // Colors: show swatch name and change background briefly
+    // Colors: show "You tapped: <ColorName>" in the .swatch-feedback area (like numbers)
     var swatches = document.querySelectorAll('.swatch');
     var swatchFeedback = document.querySelector('.swatch-feedback');
     swatches && swatches.forEach(function (s) {
       s.addEventListener('click', function () {
         var name = s.getAttribute('data-name') || '';
-        if (swatchFeedback) swatchFeedback.textContent = name;
         var col = window.getComputedStyle(s).backgroundColor;
-        var body = document.body;
-        var orig = body.style.backgroundColor || '';
-        body.style.backgroundColor = col;
-        setTimeout(function () { body.style.backgroundColor = orig; }, 400);
+        if (!swatchFeedback) return;
+
+        // create preview (optional) and the label text area if missing
+        var preview = swatchFeedback.querySelector('.swatch-preview');
+        var label = swatchFeedback.querySelector('.swatch-name');
+
+        if (!label) {
+          swatchFeedback.innerHTML = ''; // clear any old nodes
+          // optional preview square
+          preview = document.createElement('span');
+          preview.className = 'swatch-preview';
+          // text label
+          label = document.createElement('div');
+          label.className = 'swatch-name';
+          swatchFeedback.appendChild(preview);
+          swatchFeedback.appendChild(label);
+        }
+
+        // set preview color (keeps the visual cue)
+        if (preview) preview.style.backgroundColor = col;
+
+        // set the message exactly like the numbers section
+        label.textContent = 'You tapped: ' + name;
+
+        // accessible announcement for screen readers
+        swatchFeedback.setAttribute('aria-live', 'polite');
+
+        // show feedback (CSS .visible must be present – your stylesheet already has it)
+        swatchFeedback.classList.add('visible');
+
+        // hide after 2s (same behaviour as numbers)
+        clearTimeout(swatchFeedback._hideTimeout);
+        swatchFeedback._hideTimeout = setTimeout(function () {
+          swatchFeedback.classList.remove('visible');
+        }, 2000);
       });
     });
 
