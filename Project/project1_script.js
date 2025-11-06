@@ -109,44 +109,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // --- Color, Number, Animal, Shape, Transport, Clothing Interactions ---
   (function () {
-    // Colors: show "You tapped: <ColorName>" in the .swatch-feedback area (like numbers)
+    // Colors: show "You tapped: <ColorName>" in the .swatch-feedback area
     var swatches = document.querySelectorAll('.swatch');
     var swatchFeedback = document.querySelector('.swatch-feedback');
     swatches && swatches.forEach(function (s) {
       s.addEventListener('click', function () {
         var name = s.getAttribute('data-name') || '';
-        var col = window.getComputedStyle(s).backgroundColor;
+        // Remove the preview creation and setting
+        // var col = window.getComputedStyle(s).backgroundColor; // This line is no longer needed
         if (!swatchFeedback) return;
 
-        // create preview (optional) and the label text area if missing
-        var preview = swatchFeedback.querySelector('.swatch-preview');
-        var label = swatchFeedback.querySelector('.swatch-name');
+        // Clear any old nodes
+        swatchFeedback.innerHTML = ''; 
+        // Set the message
+        swatchFeedback.textContent = 'You tapped: ' + name;
 
-        if (!label) {
-          swatchFeedback.innerHTML = ''; // clear any old nodes
-          // optional preview square
-          preview = document.createElement('span');
-          preview.className = 'swatch-preview';
-          // text label
-          label = document.createElement('div');
-          label.className = 'swatch-name';
-          swatchFeedback.appendChild(preview);
-          swatchFeedback.appendChild(label);
-        }
-
-        // set preview color (keeps the visual cue)
-        if (preview) preview.style.backgroundColor = col;
-
-        // set the message exactly like the numbers section
-        label.textContent = 'You tapped: ' + name;
-
-        // accessible announcement for screen readers
+        // Accessible announcement for screen readers
         swatchFeedback.setAttribute('aria-live', 'polite');
 
-        // show feedback (CSS .visible must be present – your stylesheet already has it)
+        // Show feedback (CSS .visible must be present)
         swatchFeedback.classList.add('visible');
 
-        // hide after 2s (same behaviour as numbers)
+        // Hide after 2s
         clearTimeout(swatchFeedback._hideTimeout);
         swatchFeedback._hideTimeout = setTimeout(function () {
           swatchFeedback.classList.remove('visible');
