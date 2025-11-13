@@ -1,0 +1,43 @@
+*{box-sizing: border-box;}
+.img {width: 100%; display: block;}
+.title {
+  text-align: center;
+  color: blueviolet;
+  font-family: 'Arial', sans-serif;
+}
+.navbar {
+  display: flex;
+  background-color: #333;
+  overflow: hidden;
+  padding: 2rem;
+  margin: auto;
+  width: 900px;
+}
+.btngroup button {
+  background-color: aliceblue; width: 20%;
+}
+.btngroup {width: 80%}
+.btngroup button{
+  background-color: aliceblue; width: 20%; font-size: 1.5rem; text-decoration: none; border: none;
+}
+.btngroup button a {text-decoration: none;}
+
+.headertitle {
+  text-align: center;
+}
+
+.maincontainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  width: 900px;
+  margin: auto;
+}
+.cardimg{
+  width: 40%;
+  margin: 2%;
+  border: 10px;
+  overflow: hidden;
+
+
+}
