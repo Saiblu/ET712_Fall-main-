@@ -6,13 +6,19 @@ const Navbars = function () {
     return (
         <nav className='navbar'>
             <div className='qcclink'>
-                <a href="https://www.qcc.cuny.edu" target="_blank">QCC</a>
+                <a href="https://www.qcc.cuny.edu" target="_blank" rel="noopener noreferrer">QCC</a>
             </div>
 
             <div className='btngroup'>
-                <button><Link to="/">Home</Link></button>
-                <button><Link to="/about">About Us</Link></button>
-                <button><Link to="/contact">Contact Us</Link></button>
+                <Link to="/">
+                    <button>Home</button>
+                </Link>
+                <Link to="/about">
+                    <button>About Us</button>
+                </Link>
+                <Link to="/contact">
+                    <button>Contact Us</button>
+                </Link>
             </div>
         </nav>
     )
