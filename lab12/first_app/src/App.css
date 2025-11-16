@@ -1,39 +1,53 @@
-/* Remove conflicting rules and consolidate */
-.feedbackcontainer {
-  margin: 1rem;
-  transition: all 0.3s ease; /* Add transition for smooth hover */
+* {box-sizing: border-box;}
+img{width: 100%; display: block;}
+
+.author {
+  text-align: center;
+  display: block;
+  font-weight: bolder;
+  font-size: 1.5rem;
+}
+.metadata, .comment {
+  text-align: center;
+}
+.date {
+ font-style: italic;
+ color: darkblue;
+ font-weight: bolder;
 }
 
-.feedbackcontainer:hover {
-  box-shadow: 0px 0px 5px 2px gray;
+/* app.js */
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+
+/* UserFeedback.js */
+.feedbackcard {
+  width: 300px;
+  border: solid 1px gray;
+  border-radius: 5px;
+  text-align: center;
+  overflow: hidden;
+  
+}
+.feedbackcontainer:hover{
+  box-shadow: 0px 0px 10px 2px gray;
   transform: scale(1.01);
   overflow: hidden;
   border-radius: 10px;
 }
-
-/* Modal styles (add these) */
-.modalwindow {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.cardfooter {
+  background-color: gray;
+  padding: 0.5rem 1rem;
+  color: aliceblue
 }
-
-.modalcontent {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 400px;
+.feedbackcontainer {
+  margin: 1rem;
 }
-
-.closemodal {
-  cursor: pointer;
-  float: right;
+.content{
   font-size: 1.5rem;
+  font-weight: bolder;
+  padding: 1rem;
 }
-

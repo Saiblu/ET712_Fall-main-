@@ -1,14 +1,17 @@
 import React from 'react';
 import './App.css'
 
-const UserFeedback = function({ children }){
+const UserFeedback = function(props){
     return (
         <div className="feedbackcontainer">
             <section className="feedbackcard">
-                {children}
-                <div className="cardfooter">
-                    <p className='addition'><span>&#128077;</span>Add feedback</p>
+                <div className="content">{props.username}</div>
+                <div className='description'>{props.children}</div>
+                <div className="cardfooter">Date of feedback
+                    <p className='addicon'><span>&#10011;</span>Add Feedback</p>
+
                 </div>
+                
             </section>
         </div>
     )

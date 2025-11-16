@@ -1,9 +1,9 @@
-import React from "react"
-import "./App.css"
+import React from 'react';
+import './App.css';
 
-const User = function(props) {
-    return (
-        <section className="user-card">
+const User = function (props) {
+    return(
+        <section className="card">
             <div className="avatar-container">
                 <img src={props.image} alt={`${props.name} avatar`} />
             </div>
