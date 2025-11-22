@@ -51,6 +51,18 @@ function App() {
           />
           </div>
 
+           <div className='formgroup'>
+            <label htmlFor="password">Enter your password:</label>
+            <input
+              type='password'
+              id='password'
+              name='password'
+              placeholder='Type your password'
+              value={inputs.password}
+              onChange={handle_changes}
+            />
+          </div>
+
           <div className='formgroup'>
             <label for="age">Enter your age:</label>
             <input
