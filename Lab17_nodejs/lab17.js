@@ -11,4 +11,16 @@ setTimeout(() => {
 console.log('---------Example 2: creating a simple module file-------')
 const name = require("./mod")
 
-console.log(name("Elias Muniz"));
+console.log(name.helper("Elias Muniz"));
+console.log(name.id(12345))
+console.log(name.email("elias@example.com"))
+
+console.log('---------Example 3: Event emitter-------')
+let events = require('events');
+let eventEmitter = new events.EventEmitter();
+
+eventEmitter.on('Login', function(a){
+    console.log(`${a} has logged in successfully.`);
+});
+
+eventEmitter.emit('Login', 'Elias Muniz');
