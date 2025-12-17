@@ -17,7 +17,7 @@ const CategoriesList = () => {
         {categories.map(cat => (
           <Link to={`/category/${cat.key}`} key={cat.key} className="category-card">
             <div className="category-image-wrapper">
-              <img src={cat.img} alt={cat.label} />
+              <img src={cat.img} alt={cat.label} loading="lazy" />
             </div>
             <div className="category-label">{cat.label}</div>
           </Link>

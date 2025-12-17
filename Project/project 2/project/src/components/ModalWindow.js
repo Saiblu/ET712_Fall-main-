@@ -9,7 +9,7 @@ const ModalWindow = ({ isOpen, onClose, product }) => {
                     &times;
                 </button>
                 <div className="modal-body">
-                    <img src={product.image} alt={product.title} className="modal-product-image" />
+                    <img src={product.image} alt={product.title} className="modal-product-image" loading="lazy" />
                     <h2 className="modal-product-title">{product.title}</h2>
                     <p className="modal-product-description">{product.description}</p>
                     <p className="modal-product-price">${product.price.toFixed(2)}</p>

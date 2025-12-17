@@ -14,8 +14,7 @@ const Card = ({ product, onAddToCart }) => {
     <>
       <div className="card">
         <div className="card-image-container" onClick={() => setIsModalOpen(true)}>
-          <img src={product.image} alt={product.title} className="card-image" />
-          <span className="card-category">{product.category}</span>
+          <img src={product.image} alt={product.title} className="card-image" loading="lazy" />
           {product.sale && <span className="card-sale">SALE</span>}
         </div>
         

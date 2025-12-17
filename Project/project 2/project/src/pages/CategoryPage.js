@@ -2,10 +2,19 @@ import { useState, useMemo, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import ProductGrid from '../components/ProductGrid';
 
-const CategoryPage = ({ category: propCategory }) => {
+const CategoryPage = () => {
   const { category: paramCategory, subcategory: paramSubcategory } = useParams();
   const navigate = useNavigate();
-  const activeCategory = (propCategory || paramCategory || '').toLowerCase();
+  const activeCategory = (paramCategory || '').toLowerCase();
+
+  // Debug useEffect
+  useEffect(() => {
+    console.log('🔍 CategoryPage debug:', {
+      paramCategory,
+      activeCategory,
+      pathname: window.location.pathname
+    });
+  }, [paramCategory, activeCategory]);
 
   // Define products grouped with a `type` property so we can create subcategories
   const categoryProducts = {
@@ -62,6 +71,35 @@ const CategoryPage = ({ category: propCategory }) => {
 
   const allProducts = categoryProducts[activeCategory];
 
+  // Optional category-specific landing images (use files you added in public/images)
+  const categoryImages = {
+    men: [
+      '/images/Blue and white shirt.webp',
+      '/images/Checkoxford.webp',
+      '/images/Red, green, and white shirt.jpg'
+    ],
+    women: [
+      '/images/women-1.svg',
+      '/images/women-2.svg',
+      '/images/women-3.svg'
+    ],
+    kids: [
+      '/images/kids-1.svg',
+      '/images/kids-2.svg',
+      '/images/kids-3.svg'
+    ],
+    accessories: [
+      '/images/accessories-1.svg',
+      '/images/accessories-2.svg',
+      '/images/accessories-3.svg'
+    ]
+  };
+
+  // pick thumbs from uploaded images when available, otherwise fall back to product images
+  const landingThumbs = (categoryImages[activeCategory] && categoryImages[activeCategory].length)
+    ? categoryImages[activeCategory].slice(0,4).map((src, idx) => ({ id: `img-${idx}`, title: `${activeCategory} ${idx+1}`, image: src }))
+    : allProducts.slice(0,4);
+
   // Build subcategory list dynamically (unique `type` values)
   const subcategories = useMemo(() => {
     const set = new Set(allProducts.map(p => p.type || 'Misc').map(s => s.toLowerCase()));
@@ -79,6 +117,18 @@ const CategoryPage = ({ category: propCategory }) => {
     setActiveSub(paramSubcategory ? paramSubcategory.toLowerCase() : null);
   }, [paramSubcategory]);
 
+  // Dev log when category or subcategory changes
+  useEffect(() => {
+    if (process.env.NODE_ENV === 'development') {
+      // avoid accessing `filtered` before it's initialized — compute count from available values
+      const filteredCount = activeSub
+        ? allProducts.filter(p => (p.type || 'misc').toLowerCase() === activeSub).length
+        : allProducts.length;
+
+      console.log('DEV CategoryPage:', { paramCategory, paramSubcategory, activeCategory, activeSub, filteredCount });
+    }
+  }, [paramCategory, paramSubcategory, activeCategory, activeSub, allProducts.length]);
+
   // Filter products by active subcategory (if set)
   const filtered = activeSub
     ? allProducts.filter(p => (p.type || 'misc').toLowerCase() === activeSub)
@@ -95,11 +145,43 @@ const CategoryPage = ({ category: propCategory }) => {
     }
   };
 
-  console.log('CategoryPage render:', { paramCategory, paramSubcategory, activeCategory });
-
   return (
     <div className="page-container">
       <h1 className="page-title">{activeCategory.charAt(0).toUpperCase() + activeCategory.slice(1)} Collection</h1>
+
+      {/* Landing / mega menu style area shown above the product grid */}
+      <div className="category-landing">
+        <div className="landing-left">
+          <ul className="landing-list">
+            {subcategories.map(sc => (
+              <li key={sc.key}>
+                <button className={`landing-link ${activeSub === sc.key ? 'active' : ''}`} onClick={() => handleSubClick(sc.key)}>{sc.label}</button>
+              </li>
+            ))}
+            <li>
+              <button className={`landing-link ${!activeSub ? 'active' : ''}`} onClick={() => handleSubClick(null)}>View All</button>
+            </li>
+          </ul>
+        </div>
+
+        <div className="landing-right">
+          <div className="landing-thumbs">
+            {landingThumbs.map(p => (
+              <div key={p.id} className="thumb">
+                <img src={p.image} alt={p.title} loading="lazy" />
+                <div className="thumb-label">{p.title}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="landing-sections">
+            <h3>THE NEW</h3>
+            <ul>
+              {allProducts.slice(4,8).map(p=> <li key={p.id}>{p.title}</li>)}
+            </ul>
+          </div>
+        </div>
+      </div>
 
       <div className="subcategory-row">
         <button
